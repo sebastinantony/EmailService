@@ -1,0 +1,5 @@
+D:\i5 Move\F\MailService\WebApplication2\bin\WebApplication2.dll
+D:\i5 Move\F\MailService\WebApplication2\bin\WebApplication2.pdb
+D:\i5 Move\F\MailService\WebApplication2\obj\Debug\WebApplication2.dll
+D:\i5 Move\F\MailService\WebApplication2\obj\Debug\WebApplication2.pdb
+D:\i5 Move\F\MailService\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache
