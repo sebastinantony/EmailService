@@ -24,42 +24,43 @@ public partial class Email : System.Web.UI.Page
             msg.Subject = ConfigurationManager.AppSettings["HomeMailSubject"];
             StringBuilder str = new StringBuilder();
             str.AppendFormat("<table style='width:100%'>");
-                str.AppendFormat("<tr>");
-                    str.AppendFormat("<td>Name :</td>");
-                    str.AppendFormat("<td>{0}</td>", txtName);
-                str.AppendFormat("</tr>");
-                str.AppendFormat("<tr>");
-                    str.AppendFormat("<td>Email :</td>");
-                    str.AppendFormat("<td>{0}</td>", txtEmail);
-                str.AppendFormat("</tr>");
-                str.AppendFormat("<tr>");
-                    str.AppendFormat("<td>Phone :</td>");
-                    str.AppendFormat("<td>{0}</td>", txtPhone);
-                str.AppendFormat("</tr>");
-                str.AppendFormat("<tr>");
-                    str.AppendFormat("<td>Comments :</td>");
-                    str.AppendFormat("<td>{0}</td>", txtComments);
-                str.AppendFormat("</tr>");
-                str.AppendFormat("<tr>");
-                    str.AppendFormat("<td>Comments :</td>");
-                    str.AppendFormat("<td>{0}</td>", txtAddress);
-                str.AppendFormat("</tr>");
+            str.AppendFormat("<tr>");
+            str.AppendFormat("<td>Name :</td>");
+            str.AppendFormat("<td>{0}</td>", txtName);
+            str.AppendFormat("</tr>");
+            str.AppendFormat("<tr>");
+            str.AppendFormat("<td>Email :</td>");
+            str.AppendFormat("<td>{0}</td>", txtEmail);
+            str.AppendFormat("</tr>");
+            str.AppendFormat("<tr>");
+            str.AppendFormat("<td>Phone :</td>");
+            str.AppendFormat("<td>{0}</td>", txtPhone);
+            str.AppendFormat("</tr>");
+            str.AppendFormat("<tr>");
+            str.AppendFormat("<td>Comments :</td>");
+            str.AppendFormat("<td>{0}</td>", txtComments);
+            str.AppendFormat("</tr>");
+            str.AppendFormat("<tr>");
+            str.AppendFormat("<td>Comments :</td>");
+            str.AppendFormat("<td>{0}</td>", txtAddress);
+            str.AppendFormat("</tr>");
             str.AppendFormat("</table>");
             msg.IsBodyHtml = true;
             msg.Body = str.ToString();
             SmtpClient smtp = new SmtpClient();
+            smtp.UseDefaultCredentials = false;
             smtp.EnableSsl = true;
             smtp.Send(msg);
             return ConfigurationManager.AppSettings["HomeThanksMsg"];
         }
         catch (Exception ex)
         {
-            return "An error occured in sending mail " + ex.Message; 
+            return "An error occured in sending mail " + ex.Message;
         }
     }
 
     [WebMethod]
-    public static string SendEmailConnect(string txtName, string txtPhone, string txtEmail, string ddlNation,string ddlInquire)
+    public static string SendEmailConnect(string txtName, string txtPhone, string txtEmail, string ddlNation, string ddlInquire)
     {
         try
         {
@@ -67,26 +68,26 @@ public partial class Email : System.Web.UI.Page
             msg.Subject = ConfigurationManager.AppSettings["ConnectMailSubject"];
             StringBuilder str = new StringBuilder();
             str.AppendFormat("<table style='width:100%'>");
-                str.AppendFormat("<tr>");
-                    str.AppendFormat("<td>Name :</td>");
-                    str.AppendFormat("<td>{0}</td>", txtName);
-                str.AppendFormat("<\tr>");
-                str.AppendFormat("<tr>");
-                    str.AppendFormat("<td>Email :</td>");
-                    str.AppendFormat("<td>{0}</td>", txtEmail);
-                str.AppendFormat("<\tr>");
-                str.AppendFormat("<tr>");
-                    str.AppendFormat("<td>Phone :</td>");
-                    str.AppendFormat("<td>{0}</td>", txtPhone);
-                str.AppendFormat("<\tr>");
-                str.AppendFormat("<tr>");
-                    str.AppendFormat("<td>Nationality :</td>");
-                    str.AppendFormat("<td>{0}</td>", ddlNation);
-                str.AppendFormat("<\tr>");
-                str.AppendFormat("<tr>");
-                    str.AppendFormat("<td>Inquiry About :</td>");
-                    str.AppendFormat("<td>{0}</td>", ddlNation);
-                str.AppendFormat("<\tr>");
+            str.AppendFormat("<tr>");
+            str.AppendFormat("<td>Name :</td>");
+            str.AppendFormat("<td>{0}</td>", txtName);
+            str.AppendFormat("<\tr>");
+            str.AppendFormat("<tr>");
+            str.AppendFormat("<td>Email :</td>");
+            str.AppendFormat("<td>{0}</td>", txtEmail);
+            str.AppendFormat("<\tr>");
+            str.AppendFormat("<tr>");
+            str.AppendFormat("<td>Phone :</td>");
+            str.AppendFormat("<td>{0}</td>", txtPhone);
+            str.AppendFormat("<\tr>");
+            str.AppendFormat("<tr>");
+            str.AppendFormat("<td>Nationality :</td>");
+            str.AppendFormat("<td>{0}</td>", ddlNation);
+            str.AppendFormat("<\tr>");
+            str.AppendFormat("<tr>");
+            str.AppendFormat("<td>Inquiry About :</td>");
+            str.AppendFormat("<td>{0}</td>", ddlNation);
+            str.AppendFormat("<\tr>");
             str.AppendFormat("<\table>");
             msg.IsBodyHtml = true;
             msg.Body = str.ToString();
