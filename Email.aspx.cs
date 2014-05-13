@@ -50,7 +50,7 @@ public partial class Email : System.Web.UI.Page
             SmtpClient smtp = new SmtpClient();
             smtp.UseDefaultCredentials = true;
             smtp.EnableSsl = true;
-            smtp.DeliveryMethod = SmtpDeliveryMethod.PickupDirectoryFromIis;
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtp.Send(msg);
             return ConfigurationManager.AppSettings["HomeThanksMsg"];
         }
