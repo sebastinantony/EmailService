@@ -48,8 +48,9 @@ public partial class Email : System.Web.UI.Page
             msg.IsBodyHtml = true;
             msg.Body = str.ToString();
             SmtpClient smtp = new SmtpClient("127.0.0.1");
-            smtp.UseDefaultCredentials = false;
+            smtp.UseDefaultCredentials = true;
             smtp.EnableSsl = true;
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtp.Send(msg);
             return ConfigurationManager.AppSettings["HomeThanksMsg"];
         }
