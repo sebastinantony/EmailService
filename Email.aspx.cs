@@ -47,7 +47,7 @@ public partial class Email : System.Web.UI.Page
             str.AppendFormat("</table>");
             msg.IsBodyHtml = true;
             msg.Body = str.ToString();
-            SmtpClient smtp = new SmtpClient();
+            SmtpClient smtp = new SmtpClient("127.0.0.1");
             smtp.UseDefaultCredentials = false;
             smtp.EnableSsl = true;
             smtp.Send(msg);
